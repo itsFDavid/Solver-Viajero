@@ -1,14 +1,17 @@
+package solver.viajero.beta;
+
+
+import solver.viajero.beta.flightPlan;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
-
-package com.mycompany.solver.viajero;
 
 /**
  *
  * @author francisco
  */
-public class SolverViajero {
+public class SolverViajeroBeta {
     public static void main(String[] args) {
         flightPlan plan = new flightPlan("", 0.0);
 
