@@ -1,22 +1,22 @@
 package solver.viajero;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class flightPlan extends city {
+public class flightPlan {
     private List<city> cities; // Lista de ciudades
     Scanner scanner = new Scanner(System.in);
 
-    public flightPlan(String nameCity, double travelPrice) {
-        super(nameCity, travelPrice);
+    public flightPlan() {
         cities = new ArrayList<>(); // Inicializar la lista de ciudades
     }
 
-    void addCity() {
+    public void addCity() {
         System.out.println("Ingrese el nombre de la ciudad: ");
         String name = scanner.nextLine();
         System.out.println("Ingrese el precio de vuelo: ");
-        int price = scanner.nextInt();
+        double price = scanner.nextDouble();
         scanner.nextLine(); // Limpiar el buffer del scanner
 
         city city = new city(name, price);
@@ -34,5 +34,13 @@ public class flightPlan extends city {
         }
         System.out.println("La ciudad no fue encontrada.");
     }
+    
+    public int totalCities(){
+        return cities.size();
+    }
 
+    // Agrega un método para obtener la ciudad en una posición específica de la lista
+    public city getCity(int index) {
+        return cities.get(index);
+    }
 }

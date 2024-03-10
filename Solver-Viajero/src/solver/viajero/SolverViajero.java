@@ -1,31 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package solver.viajero;
 
-
-import solver.viajero.flightPlan;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
-/**
- *
- * @author francisco
- */
 public class SolverViajero {
     public static void main(String[] args) {
-        flightPlan plan = new flightPlan("", 0.0);
-
-        // Agregar algunas ciudades (esto puede ser en otro método o parte de tu aplicación)
-        plan.addCity();
-        plan.addCity();
+        flightPlan plan = new flightPlan();
+        matrizCities matriz = new matrizCities(plan);
+        // Agregar algunas ciudades
+        for (int i = 0; i < 5; i++) {
+            plan.addCity();
+        }
 
         // Realizar una búsqueda por nombre de ciudad
         System.out.println("Ingrese el nombre de la ciudad a buscar: ");
         String cityName = plan.scanner.nextLine();
         plan.searchCityByName(cityName);
+        System.out.println("El numero total de ciudades es: " + plan.totalCities());
+
+        // Configurar la matriz de precios
+        matriz.setMatriz();
+        double[][] prices = matriz.getPrices();
+
+        // Mostrar la matriz de precios
+        for (int i = 0; i < plan.totalCities(); i++) {
+            for (int j = 0; j < plan.totalCities(); j++) {
+                System.out.print(prices[i][j] + " | ");
+            }
+            System.out.println();
+        }
     }
 }
